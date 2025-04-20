@@ -1,6 +1,7 @@
 package com.contentmunch.authentication.config;
 
 import com.contentmunch.authentication.data.MuncherUser;
+import lombok.Builder;
 import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -8,10 +9,12 @@ import java.util.Map;
 
 
 @ConfigurationProperties(prefix = "contentmunch.auth")
+@Builder
 public record AuthConfigProperties(int maxAgeInMinutes, String secret, CookieConfig cookie,
                                    Map<String, MuncherUser> users) {
 
 
+    @Builder
     public record CookieConfig(String name, SameSite sameSite, boolean secure,
                                boolean httpOnly, String path) {
 
@@ -27,6 +30,4 @@ public record AuthConfigProperties(int maxAgeInMinutes, String secret, CookieCon
 
         }
     }
-
-
 }

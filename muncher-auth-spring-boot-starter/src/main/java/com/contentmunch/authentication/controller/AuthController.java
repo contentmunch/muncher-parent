@@ -29,20 +29,20 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<MuncherUser> login(@RequestBody AuthRequest authRequest, HttpServletResponse response) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.username(), authRequest.password()));
 
 
-        var userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
+        var userDetails = userDetailsService.loadUserByUsername(authRequest.username());
         if (userDetails instanceof MuncherUser muncherUser) {
             String token = tokenizationService.generateToken(muncherUser);
             var cookie = cookieService.cookieFromToken(token).toString();
             response.setHeader(HttpHeaders.SET_COOKIE, cookie);
 
-            log.info("User {} logged in", authRequest.getUsername());
+            log.info("User {} logged in", authRequest.username());
 
             return ResponseEntity.ok(muncherUser);
         } else {
-            throw new UsernameNotFoundException("User not found with username: " + authRequest.getUsername());
+            throw new UsernameNotFoundException("User not found with username: " + authRequest.username());
         }
     }
 

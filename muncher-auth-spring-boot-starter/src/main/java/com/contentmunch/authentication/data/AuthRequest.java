@@ -1,10 +1,5 @@
 package com.contentmunch.authentication.data;
 
-import lombok.Data;
+public record AuthRequest(String username, String password) {
 
-@Data
-public class AuthRequest {
-
-    private String username;
-    private String password;
 }
