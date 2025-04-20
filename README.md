@@ -119,8 +119,3 @@ These are enforced via GitHub Actions and other automation tools.
 	✅ No merge conflicts
 ---
 
-## 📄 License
-
-This project is licensed under the [Apache License 2.0](https://github.com/contentmuncher/muncher-parent/blob/main/LICENSE) © 2024–Present Contentmunch.com
-
-
