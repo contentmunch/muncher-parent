@@ -1,0 +1,3 @@
+com.contentmunch.telemetry.TelemetryAutoConfiguration
+com.contentmunch.logging.LoggingAutoConfiguration
+com.contentmunch.error.ExceptionHandlerAutoConfiguration

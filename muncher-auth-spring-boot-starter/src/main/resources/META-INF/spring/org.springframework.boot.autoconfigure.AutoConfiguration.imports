@@ -1,0 +1,4 @@
+com.contentmunch.telemetry.TelemetryAutoConfiguration
+com.contentmunch.logging.LoggingAutoConfiguration
+com.contentmunch.error.ExceptionHandlerAutoConfiguration
+com.contentmunch.authentication.config.AuthenticationAutoConfiguration
