@@ -68,7 +68,6 @@ public class SecurityExceptionHandler {
         return forbidden("Insufficient authentication", "INSUFFICIENT_AUTH");
     }
 
-    // Helpers to keep things clean
     private ResponseEntity<ErrorResponse> unauthorized(String msg, String code) {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                 .body(ErrorResponse.builder()

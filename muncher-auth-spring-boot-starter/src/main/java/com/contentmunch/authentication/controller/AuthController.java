@@ -3,7 +3,6 @@ package com.contentmunch.authentication.controller;
 
 import com.contentmunch.authentication.data.AuthRequest;
 import com.contentmunch.authentication.data.MuncherUser;
-import com.contentmunch.authentication.error.UserNotFoundException;
 import com.contentmunch.authentication.service.CookieService;
 import com.contentmunch.authentication.service.TokenizationService;
 import jakarta.servlet.http.HttpServletResponse;
@@ -15,6 +14,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -42,7 +42,7 @@ public class AuthController {
 
             return ResponseEntity.ok(muncherUser);
         } else {
-            throw new UserNotFoundException();
+            throw new UsernameNotFoundException("User not found with username: " + authRequest.getUsername());
         }
     }
 
@@ -61,7 +61,7 @@ public class AuthController {
             return ResponseEntity.ok(muncherUser);
 
         } else {
-            throw new UserNotFoundException();
+            throw new UsernameNotFoundException("User not found with username: " + principal);
         }
     }
 }

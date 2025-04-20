@@ -12,11 +12,6 @@
     <artifactId>muncher-foundation-spring-boot-starter</artifactId>
     <dependencies>
         <dependency>
-            <groupId>com.contentmunch</groupId>
-            <artifactId>muncher-telemetry-spring-boot-starter</artifactId>
-            <version>1.0.0.RELEASE</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
@@ -37,6 +32,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.hakky54</groupId>
+            <artifactId>logcaptor</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>
