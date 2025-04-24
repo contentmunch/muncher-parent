@@ -1,6 +1,6 @@
 # muncher-parent 
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](./LICENSE)
-[![CI](https://github.com/contentmunch/muncher-parent/actions/workflows/ci.yml/badge.svg)](https://github.com/contentmunch/muncher-parent/actions/workflows/maven.yml/badge.svg)
+[![CI](https://github.com/contentmunch/muncher-parent/actions/workflows/maven.yml/badge.svg)](https://github.com/contentmunch/muncher-parent/actions)
 
 
 **Muncher Parent POM** for standardizing the build, dependency management, and plugin configuration across all muncher projects.
