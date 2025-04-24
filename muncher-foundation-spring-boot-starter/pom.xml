@@ -8,8 +8,10 @@
         <artifactId>muncher-parent</artifactId>
         <version>1.0.0.RELEASE</version>
     </parent>
-
     <artifactId>muncher-foundation-spring-boot-starter</artifactId>
+    <properties>
+        <muncher.scripts.dir>${project.parent.basedir}/scripts</muncher.scripts.dir>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -8,7 +8,9 @@
         <artifactId>muncher-parent</artifactId>
         <version>1.0.0.RELEASE</version>
     </parent>
-
+    <properties>
+        <muncher.scripts.dir>${project.parent.basedir}/scripts</muncher.scripts.dir>
+    </properties>
     <artifactId>muncher-auth-spring-boot-starter</artifactId>
     <dependencies>
         <dependency>
