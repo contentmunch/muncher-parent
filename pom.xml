@@ -165,7 +165,7 @@
                         <configuration>
                             <executable>sh</executable>
                             <arguments>
-                                <argument>${project.basedir}/scripts/install-git-hooks.sh</argument>
+                                <argument>${project.parent.basedir}/scripts/install-git-hooks.sh</argument>
                             </arguments>
                         </configuration>
                     </execution>
