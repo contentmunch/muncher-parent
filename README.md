@@ -58,11 +58,11 @@ We follow [GitHub Flow](https://guides.github.com/introduction/flow/) for develo
 
 ### Workflow Rules
 
-- Branch from `develop` when starting work.
-- Open pull requests **into `develop`**.
+- Branch from `main` when starting work.
+- Open pull requests **into `main`**.
 - Ensure your code is covered by tests (unit/integration as appropriate).
-- Keep your branch up-to-date with `develop`.
-- Follow existing code style and structure.
+- Keep your branch up to date with `main`.
+- Follow the existing code style and structure.
 
 ---
 
@@ -113,8 +113,7 @@ CI/CD and Quality
 
 These are enforced via GitHub Actions and other automation tools.
 
-	✅ Tests must pass before merging
-	✅ Code formatting should match Google Java Format
+	✅ Tests must pass before merging 
 	✅ PR should be reviewed and approved
 	✅ No merge conflicts
 ---
