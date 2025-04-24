@@ -13,7 +13,7 @@ public class LoggingAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public RequestResponseLoggingFilter requestResponseLoggingFilter() {
+    public RequestResponseLoggingFilter requestResponseLoggingFilter(){
         return new RequestResponseLoggingFilter();
     }
 }

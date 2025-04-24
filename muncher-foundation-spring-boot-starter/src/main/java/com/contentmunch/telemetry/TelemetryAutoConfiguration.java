@@ -13,7 +13,7 @@ public class TelemetryAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public TelemetryHeaderFilter telemetryHeaderFilter() {
+    public TelemetryHeaderFilter telemetryHeaderFilter(){
         return new TelemetryHeaderFilter();
     }
 }

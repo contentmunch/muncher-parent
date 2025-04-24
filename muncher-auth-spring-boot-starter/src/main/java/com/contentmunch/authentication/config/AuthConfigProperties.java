@@ -1,23 +1,31 @@
 package com.contentmunch.authentication.config;
 
-import com.contentmunch.authentication.data.MuncherUser;
-import lombok.Builder;
-import lombok.Getter;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-
 import java.util.Map;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import com.contentmunch.authentication.data.MuncherUser;
+
+import lombok.Builder;
+import lombok.Getter;
 
 @ConfigurationProperties(prefix = "contentmunch.auth")
 @Builder
 public record AuthConfigProperties(int maxAgeInMinutes, String secret, CookieConfig cookie,
-                                   Map<String, MuncherUser> users) {
+        Map<String, MuncherUser> users) {
 
+    public AuthConfigProperties {
+        users = users == null ? Map.of() : Map.copyOf(users);
+    }
+    public static class AuthConfigPropertiesBuilder {
+        public AuthConfigPropertiesBuilder users(Map<String, MuncherUser> users){
+            this.users = users == null ? Map.of() : Map.copyOf(users);
+            return this;
+        }
+    }
 
     @Builder
-    public record CookieConfig(String name, SameSite sameSite, boolean secure,
-                               boolean httpOnly, String path) {
-
+    public record CookieConfig(String name, SameSite sameSite, boolean secure, boolean httpOnly, String path) {
 
         @Getter
         public enum SameSite {

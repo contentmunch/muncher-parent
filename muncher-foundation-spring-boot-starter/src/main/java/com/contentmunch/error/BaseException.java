@@ -6,11 +6,12 @@ import lombok.Getter;
 public abstract class BaseException extends RuntimeException {
     private final ErrorMessage errorMessage;
 
-    public BaseException(ErrorMessage errorMessage) {
+    public BaseException(final ErrorMessage errorMessage) {
         super();
         this.errorMessage = errorMessage;
     }
-    public BaseException(ErrorMessage errorMessage, Throwable cause) {
+
+    public BaseException(final ErrorMessage errorMessage, final Throwable cause) {
         super(cause);
         this.errorMessage = errorMessage;
     }
