@@ -32,7 +32,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
-        <muncher.formatter.config>${project.basedir}/eclipse/formatter.xml</muncher.formatter.config>
+
         <muncher.scripts.dir>${project.basedir}/scripts</muncher.scripts.dir>
     </properties>
     <modules>
@@ -73,7 +73,7 @@
                     <artifactId>formatter-maven-plugin</artifactId>
                     <version>2.26.0</version>
                     <configuration>
-                        <configFile>${muncher.formatter.config}</configFile>
+                        <configFile>${project.parent.basedir}/eclipse/formatter.xml</configFile>
                         <encoding>UTF-8</encoding>
                         <lineEnding>LF</lineEnding>
                     </configuration>
