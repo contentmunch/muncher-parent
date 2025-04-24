@@ -4,7 +4,7 @@ A Spring Boot starter for secure, cookie-based authentication in microservices. 
 logout, and current user (`/me`) along with built-in distributed tracing and structured logging support
 via muncher-foundation-spring-boot-starter.
 
-## ✨ Features
+## Features
 
 - Cookie-based authentication using signed JWTs
 - Plug-and-play login, logout, and `/me` endpoints
@@ -14,7 +14,7 @@ via muncher-foundation-spring-boot-starter.
 - Seamless MDC + OpenTelemetry context propagation
 - Built-in support for distributed systems
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Add the dependencies
 
@@ -68,7 +68,7 @@ muncher:
 
 You can override these values as needed.
 
-🧪 Auth APIs
+## Auth APIs
 
 | Endpoint       | Method | Description                           |
 |----------------|--------|---------------------------------------|
@@ -110,7 +110,7 @@ Response:
 }
 ```
 
-⚙️ Integration with Logging & Tracing
+## Integration with Logging & Tracing
 This starter automatically integrates with:
 • muncher-logging-spring-boot-starter: Logs include traceId, and spanId via MDC
 • muncher-telemetry-spring-boot-starter: Trace context and baggage are automatically propagated across services
@@ -118,7 +118,7 @@ This starter automatically integrates with:
 You can trace a request across systems and correlate logs using the X-Trace-Id header and the userId set via
 authentication.
 
-📦 Publishing And Versioning
+## Publishing And Versioning
 
 This starter follows [Semantic Versioning](https://semver.org) and is meant to be used with the muncher-parent BOM (Bill
 of Materials) for consistent dependency alignment.

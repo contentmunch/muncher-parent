@@ -50,13 +50,13 @@ The parent imports:
 
 These ensure all projects use compatible dependency versions out of the box.
 
-## 🧭 Coding Guidelines
+## Coding Guidelines
 
 We follow [GitHub Flow](https://guides.github.com/introduction/flow/) for development. To maintain a high-quality, maintainable codebase, please follow these guidelines:
 
 ---
 
-### ✅ Workflow Rules
+### Workflow Rules
 
 - Branch from `develop` when starting work.
 - Open pull requests **into `develop`**.
@@ -66,7 +66,7 @@ We follow [GitHub Flow](https://guides.github.com/introduction/flow/) for develo
 
 ---
 
-### 📦 Pull Request Format
+### Pull Request Format
 
 Your PR description should follow this format:
 
@@ -90,11 +90,11 @@ Closes #42
 
 ---
 
-### 📝 Git Commit Format
+### Git Commit Format
 
 We follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) style:
 
-🎯 Types
+Types
 
 * feat: A new feature
 * fix: A bug fix
@@ -109,7 +109,7 @@ Notes:
 * Max 100 characters for subject line
 
 ---
-🧪 CI/CD and Quality
+CI/CD and Quality
 
 These are enforced via GitHub Actions and other automation tools.
 

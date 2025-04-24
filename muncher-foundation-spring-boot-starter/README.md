@@ -1,36 +1,36 @@
-# 🍽️ muncher-foundation-spring-boot-starter
+# muncher-foundation-spring-boot-starter
 
 A foundational Spring Boot starter module for all `muncher-*` projects, providing:
 
-- 📄 **Standardized Error Handling**
-- 📊 **Distributed Tracing & Telemetry** (OpenTelemetry)
-- 📝 **Structured JSON Logging**
+- **Standardized Error Handling**
+- **Distributed Tracing & Telemetry** (OpenTelemetry)
+- **Structured JSON Logging**
 
 > Built to ensure consistent behavior and observability across all services in the Muncher ecosystem.
 
 ---
 
-## 🚀 Features
+## Features
 
-### ✅ Global Exception Handling
+### Global Exception Handling
 - Categorized exceptions: `ClientException`, `BusinessException`, `ServerException`
 - Built-in handler via `@ControllerAdvice`
 - Returns structured `ErrorResponse` JSON
 - Automatically sets `traceId`, `spanId` in response headers (not the body)
 
-### 📈 Logging
+### Logging
 - JSON-based structured logs
 - Includes trace/span IDs for observability
 - Uses SLF4J and logback (can be overridden by consuming app)
 
-### 🔍 Telemetry & Tracing
+### Telemetry & Tracing
 - OpenTelemetry auto-configuration
 - Baggage and context propagation via Spring filters
 - Support for exporting spans to a tracing backend (e.g. Jaeger, OTEL Collector)
 
 ---
 
-## 🧰 Getting Started
+## Getting Started
 
 Add the dependency to your `pom.xml`:
 
@@ -44,7 +44,7 @@ Add the dependency to your `pom.xml`:
 
 >The starter auto-configures itself — no setup needed!
 
-## 🧪 How It Works
+## How It Works
 
 ### Error Response Format
 ```json
@@ -53,7 +53,7 @@ Add the dependency to your `pom.xml`:
   "errorMessage": "User not found"
 }
 ```
-### 💥 Exception Categories
+### Exception Categories
 
 The `muncher-foundation-spring-boot-starter` defines a clean and extensible exception hierarchy for consistent error handling across services.
 
@@ -64,7 +64,7 @@ The `muncher-foundation-spring-boot-starter` defines a clean and extensible exce
 | **Server Exception** | `ServerException`      | 500, 503             | Unexpected runtime issues like database failures or null pointers |
 | **Fallback Handler** | `Exception` (generic)  | 500                  | Unhandled or unknown exceptions                                   |
 
-### ✅ Best Practices
+### Best Practices
 
 - Throw `ClientException` for user-induced errors (e.g., invalid credentials).
 - Use `BusinessException` for domain rules (e.g., "Plan limit exceeded").
