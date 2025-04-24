@@ -169,7 +169,7 @@
                         <configuration>
                             <executable>sh</executable>
                             <arguments>
-                                <argument>${project.basedir}/scripts/install-git-hooks.sh</argument>
+                                <argument>${muncher.scripts.dir}/install-git-hooks.sh</argument>
                             </arguments>
                         </configuration>
                     </execution>
