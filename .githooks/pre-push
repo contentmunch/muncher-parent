@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "🔍 Running Maven quality checks before push..."
+
+mvn verify -Pquality
+STATUS=$?
+if [ $STATUS -ne 0 ]; then
+    echo "❌ Maven quality checks failed. Push aborted."
+    exit $STATUS
+fi
+
+echo "✅ Quality checks passed. Proceeding with push."
+exit 0
+

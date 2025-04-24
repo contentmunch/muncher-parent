@@ -32,6 +32,8 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.release>${java.version}</maven.compiler.release>
+        <muncher.formatter.config>${project.basedir}/eclipse/formatter.xml</muncher.formatter.config>
+        <muncher.scripts.dir>${project.basedir}/scripts</muncher.scripts.dir>
     </properties>
     <modules>
         <module>muncher-bom</module>
@@ -71,7 +73,7 @@
                     <artifactId>formatter-maven-plugin</artifactId>
                     <version>2.26.0</version>
                     <configuration>
-                        <configFile>${project.parent.basedir}/eclipse/formatter.xml</configFile>
+                        <configFile>${muncher.formatter.config}</configFile>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -151,7 +153,26 @@
                     </execution>
                 </executions>
             </plugin>
-
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <id>install-git-hooks</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>sh</executable>
+                            <arguments>
+                                <argument>${muncher.scripts.dir}/install-git-hooks.sh</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <profiles>
