@@ -52,8 +52,8 @@ jobs:
         env:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
 
-      - name: Sign the artifacts with GPG
-        run: mvn gpg:sign-and-deploy-file -Dgpg.passphrase="${{ secrets.GPG_PASSPHRASE }}"
-
-      - name: Publish to Maven Central
-        run: mvn --batch-mode -Ppublish deploy
+      - name: Sign and Publish to Maven Central
+        run: |
+          mvn -B -Ppublish -Dgpg.passphrase="${{ secrets.GPG_PASSPHRASE }}" -Dgpg.pinentryMode=loopback deploy
+        env:
+            GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
