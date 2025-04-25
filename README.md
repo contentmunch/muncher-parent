@@ -113,8 +113,8 @@ CI/CD and Quality
 
 These are enforced via GitHub Actions and other automation tools.
 
-	✅ Tests must pass before merging 
-	✅ PR should be reviewed and approved
-	✅ No merge conflicts
+✅ Tests must pass before merging 
+✅ PR should be reviewed and approved
+✅ No merge conflicts
 ---
 
