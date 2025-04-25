@@ -23,6 +23,9 @@ jobs:
           server-username: ${{ secrets.OSSRH_USERNAME }}
           server-password: ${{ secrets.OSSRH_PASSWORD }}
 
+      - name: Set up Maven settings
+        run: echo "${{ secrets.MAVEN_SETTINGS_XML }}" > $HOME/.m2/settings.xml
+
       - name: Build & Test with Maven
         run: mvn -B verify -Pquality --file pom.xml
 
