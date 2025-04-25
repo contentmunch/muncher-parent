@@ -11,14 +11,10 @@ name: Java CI with Maven
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 21
@@ -27,5 +23,31 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
         cache: maven
+        gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+        gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
+        server-id: central
+        server-username: ${{ secrets.OSSRH_USERNAME }}
+        server-password: ${{ secrets.OSSRH_PASSWORD }}
     - name: Build with Maven
       run: mvn -B package -Pquality --file pom.xml
+    - name: Import GPG key
+      run: |
+        echo "$GPG_PRIVATE_KEY" | base64 --decode | gpg --batch --import
+      env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+
+    - name: Bump version
+      run: |
+        mvn --batch-mode versions:set -DnewVersion=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout | awk -F. '{$2+=1; $3=0; print $1 "." $2 "." $3}')
+        mvn versions:commit
+
+    - name: Commit & Push Version Bump
+      run: |
+        git config user.name "GitHub CI"
+        git config user.email "ci@github.com"
+        git commit -am "chore(release): bump version"
+        git push
+
+    - name: Publish to Maven Central
+      run: mvn --batch-mode -Ppublish -Dgpg.passphrase=${{ secrets.GPG_PASSPHRASE }} deploy
+

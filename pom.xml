@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.contentmunch</groupId>
     <artifactId>muncher-parent</artifactId>
-    <version>1.0.0.RELEASE</version>
+    <version>1.1.0</version>
     <packaging>pom</packaging>
     <description>Muncher parent pom</description>
     <url>https://github.com/contentmunch/muncher-parent</url>
@@ -173,6 +173,11 @@
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.18.0</version>
             </plugin>
         </plugins>
     </build>

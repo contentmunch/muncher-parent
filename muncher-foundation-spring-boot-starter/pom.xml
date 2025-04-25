@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.contentmunch</groupId>
         <artifactId>muncher-parent</artifactId>
-        <version>1.0.0.RELEASE</version>
+        <version>1.1.0</version>
     </parent>
     <artifactId>muncher-foundation-spring-boot-starter</artifactId>
     <properties>
