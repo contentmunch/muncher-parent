@@ -26,7 +26,9 @@ jobs:
       - name: Set up Maven settings
         run: |
           mkdir -p $HOME/.m2
-          echo "${{ secrets.MAVEN_SETTINGS_XML }}" > $HOME/.m2/settings.xml
+          cat <<EOF > $HOME/.m2/settings.xml
+          ${{ secrets.MAVEN_SETTINGS_XML }}
+          EOF
 
       - name: Import GPG Key
         run: |
