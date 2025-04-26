@@ -24,10 +24,18 @@ jobs:
           server-password: ${{ secrets.OSSRH_PASSWORD }}
 
       - name: Set up Maven settings
-        run: echo "${{ secrets.MAVEN_SETTINGS_XML }}" > $HOME/.m2/settings.xml
+        run: |
+          mkdir -p $HOME/.m2
+          echo "${{ secrets.MAVEN_SETTINGS_XML }}" > $HOME/.m2/settings.xml
+
+      - name: Import GPG Key
+        run: |
+          echo "$GPG_PRIVATE_KEY" | gpg --batch --yes --pinentry-mode loopback --import
+        env:
+          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
 
       - name: Build & Test with Maven
-        run: mvn -B verify -Pquality --file pom.xml
+        run: mvn -B verify -Pquality
 
       - name: Bump minor version
         run: |
@@ -46,14 +54,6 @@ jobs:
         env:
           NEW_VERSION: ${{ env.NEW_VERSION }}
 
-      - name: Import GPG Key
-        run: |
-          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
-        env:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-
       - name: Sign and Publish to Maven Central
         run: |
           mvn -B -Ppublish -Dgpg.passphrase="${{ secrets.GPG_PASSPHRASE }}" -Dgpg.pinentryMode=loopback deploy
-        env:
-            GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
