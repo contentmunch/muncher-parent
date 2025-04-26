@@ -8,7 +8,26 @@
     <packaging>pom</packaging>
     <name>Muncher BOM</name>
     <description>Bill of materials for Muncher libraries</description>
-
+    <url>https://github.com/contentmunch/muncher-parent/muncher-bom</url>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/contentmunch/${project.artifactId}/LICENSE</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>Contentmunch</name>
+            <email>mail@contentmunch.com</email>
+            <organization>Contentmunch</organization>
+            <organizationUrl>https://www.contentmunch.com</organizationUrl>
+        </developer>
+    </developers>
+    <scm>
+        <connection>scm:git:git://github.com/contentmunch/muncher-parent.git</connection>
+        <developerConnection>scm:git:ssh://github.com/contentmunch/muncher-parent.git</developerConnection>
+        <url>https://github.com/contentmunch/muncher-parent</url>
+    </scm>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -58,4 +77,32 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.7.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <autoPublish>true</autoPublish>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.2.7</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

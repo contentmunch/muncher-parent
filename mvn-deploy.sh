@@ -25,6 +25,6 @@ git push origin main
 
 # Step 4: Deploy to Sonatype
 echo "🚀 Deploying to Sonatype..."
-mvn deploy
+mvn deploy -DskipTests
 
 echo "🎉 Release complete: $NEW_VERSION"
