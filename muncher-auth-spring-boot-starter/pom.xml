@@ -6,17 +6,14 @@
     <parent>
         <groupId>com.contentmunch</groupId>
         <artifactId>muncher-parent</artifactId>
-        <version>1.3.0</version>
+        <version>1.4.0</version>
     </parent>
-    <properties>
-        <muncher.scripts.dir>${project.parent.basedir}/scripts</muncher.scripts.dir>
-    </properties>
     <artifactId>muncher-auth-spring-boot-starter</artifactId>
     <dependencies>
         <dependency>
             <groupId>com.contentmunch</groupId>
             <artifactId>muncher-foundation-spring-boot-starter</artifactId>
-            <version>1.3.0</version>
+            <version>1.4.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

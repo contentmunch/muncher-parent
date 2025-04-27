@@ -6,12 +6,9 @@
     <parent>
         <groupId>com.contentmunch</groupId>
         <artifactId>muncher-parent</artifactId>
-        <version>1.3.0</version>
+        <version>1.4.0</version>
     </parent>
     <artifactId>muncher-foundation-spring-boot-starter</artifactId>
-    <properties>
-        <muncher.scripts.dir>${project.parent.basedir}/scripts</muncher.scripts.dir>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
