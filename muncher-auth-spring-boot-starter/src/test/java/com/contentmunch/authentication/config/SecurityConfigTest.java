@@ -16,8 +16,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import com.contentmunch.authentication.data.MuncherRole;
-import com.contentmunch.authentication.data.MuncherUser;
+import com.contentmunch.authentication.model.MuncherRole;
+import com.contentmunch.authentication.model.MuncherUser;
 import com.contentmunch.authentication.service.TokenizationService;
 
 @SpringBootTest(properties = {"contentmunch.auth.secret=a-very-secure-secret-key-12345678901234567890",

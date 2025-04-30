@@ -27,8 +27,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.contentmunch.authentication.data.MuncherRole;
-import com.contentmunch.authentication.data.MuncherUser;
+import com.contentmunch.authentication.model.MuncherRole;
+import com.contentmunch.authentication.model.MuncherUser;
 import com.contentmunch.authentication.service.CookieService;
 import com.contentmunch.authentication.service.TokenizationService;
 import com.contentmunch.error.GlobalExceptionHandler;

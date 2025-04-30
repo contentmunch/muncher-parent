@@ -12,8 +12,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.contentmunch.authentication.config.AuthConfigProperties;
-import com.contentmunch.authentication.data.MuncherRole;
-import com.contentmunch.authentication.data.MuncherUser;
+import com.contentmunch.authentication.model.MuncherRole;
+import com.contentmunch.authentication.model.MuncherUser;
 
 import io.jsonwebtoken.security.Keys;
 

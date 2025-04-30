@@ -4,7 +4,7 @@ import java.util.Map;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-import com.contentmunch.authentication.data.MuncherUser;
+import com.contentmunch.authentication.model.MuncherUser;
 
 import lombok.Builder;
 import lombok.Getter;

@@ -11,7 +11,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 
 import com.contentmunch.authentication.config.AuthConfigProperties;
-import com.contentmunch.authentication.data.MuncherUser;
+import com.contentmunch.authentication.model.MuncherUser;
 
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
