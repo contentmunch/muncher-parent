@@ -4,7 +4,7 @@ set -euo pipefail
 
 # Step 1: Verify the build
 echo "🛠️ Verifying build with quality profile..."
-mvn -B verify -Pquality
+mvn -B verify -Pquality -Dgpg.skip=true
 
 # Step 2: Bump minor version
 echo "🔢 Bumping minor version..."
