@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.contentmunch</groupId>
     <artifactId>muncher-bom</artifactId>
-    <version>1.4.0</version>
+    <version>1.5.0</version>
     <packaging>pom</packaging>
     <name>Muncher BOM</name>
     <description>Bill of materials for Muncher libraries</description>
@@ -12,7 +12,7 @@
     <licenses>
         <license>
             <name>License</name>
-            <url>https://github.com/contentmunch/${project.artifactId}/LICENSE</url>
+            <url>https://github.com/contentmunch/muncher-parent/blob/main/LICENSE</url>
         </license>
     </licenses>
     <developers>
@@ -33,12 +33,12 @@
             <dependency>
                 <groupId>com.contentmunch</groupId>
                 <artifactId>muncher-foundation-spring-boot-starter</artifactId>
-                <version>1.5.0</version>
+                <version>1.6.0</version>
             </dependency>
             <dependency>
                 <groupId>com.contentmunch</groupId>
                 <artifactId>muncher-auth-spring-boot-starter</artifactId>
-                <version>1.5.0</version>
+                <version>1.6.0</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
