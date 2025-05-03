@@ -1,3 +1,8 @@
+contentmunch:
+  logging:
+    enabled: true
+  telemetry:
+    enabled: true
 otel:
   logs:
     exporter: none
@@ -5,7 +10,4 @@ otel:
     exporter: none
   traces:
     exporter: none
-logging:
-  level:
-    com.contentmunch: DEBUG
 

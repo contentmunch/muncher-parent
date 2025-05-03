@@ -2,9 +2,6 @@ package com.contentmunch.telemetry;
 
 import java.io.IOException;
 
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import io.opentelemetry.api.trace.Span;
@@ -14,8 +11,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.NonNull;
 
-@Component
-@Order(Ordered.HIGHEST_PRECEDENCE + 10)
 public class TelemetryHeaderFilter extends OncePerRequestFilter {
 
     @Override

@@ -15,6 +15,10 @@ contentmunch:
         email: mail@contentmunch.com
         password: "{noop}password"
         roles: ROLE_USER,ROLE_ADMIN
+  logging:
+    enabled: true
+  telemetry:
+    enabled: true
 otel:
   logs:
     exporter: none

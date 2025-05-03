@@ -1,6 +1,10 @@
 #!/bin/bash
 
 set -euo pipefail
+#CONFIG: ADD bom config
+BOM_MODULE="muncher-bom"
+PARENT_POM="pom.xml"
+BOM_COORDINATES="com.contentmunch:muncher-bom"
 
 # Step 1: Verify the build
 echo "🛠️ Verifying build with quality profile..."
@@ -12,6 +16,19 @@ CURRENT_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdou
 IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_VERSION"
 NEW_VERSION="${MAJOR}.$((MINOR + 1)).0"
 
+#Step 2a: Bump BOM module version
+echo "📘 Bumping BOM version to $NEW_VERSION in $BOM_MODULE..."
+pushd "$BOM_MODULE" > /dev/null
+mvn --batch-mode versions:set -DnewVersion=$NEW_VERSION
+mvn versions:commit
+popd > /dev/null
+
+# Step 2b: Update parent POM to use new BOM version
+echo "🧩 Updating parent POM to use BOM version $NEW_VERSION..."
+mvn --batch-mode versions:use-dep-version -Dincludes=$BOM_COORDINATES -DdepVersion=$NEW_VERSION -DforceVersion=true -DgenerateBackupPoms=false
+
+# Step 2c: Set project version
+echo "📝 Setting parent version to $NEW_VERSION..."
 mvn --batch-mode versions:set -DnewVersion=$NEW_VERSION
 mvn versions:commit
 

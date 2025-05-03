@@ -4,14 +4,14 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.contentmunch</groupId>
     <artifactId>muncher-parent</artifactId>
-    <version>1.6.0</version>
+    <version>1.7.0</version>
     <packaging>pom</packaging>
     <description>Muncher parent pom</description>
     <url>https://github.com/contentmunch/muncher-parent</url>
     <licenses>
         <license>
-            <name>MIT License</name>
-            <url>https://github.com/contentmunch/${project.artifactId}/LICENSE</url>
+            <name>License</name>
+            <url>https://github.com/contentmunch/muncher-parent/LICENSE</url>
         </license>
     </licenses>
     <developers>
@@ -52,7 +52,7 @@
             <dependency>
                 <groupId>com.contentmunch</groupId>
                 <artifactId>muncher-bom</artifactId>
-                <version>1.5.0</version>
+                <version>1.7.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -86,6 +86,11 @@
                     <groupId>com.github.spotbugs</groupId>
                     <artifactId>spotbugs-maven-plugin</artifactId>
                     <version>4.9.3.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>2.18.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -149,11 +154,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>versions-maven-plugin</artifactId>
-                <version>2.18.0</version>
-            </plugin>
+
         </plugins>
     </build>
     <profiles>
