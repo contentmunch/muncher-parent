@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.contentmunch</groupId>
     <artifactId>muncher-parent</artifactId>
-    <version>1.8.0</version>
+    <version>1.9.0</version>
     <packaging>pom</packaging>
     <description>Muncher parent pom</description>
     <url>https://github.com/contentmunch/muncher-parent</url>
@@ -52,7 +52,7 @@
             <dependency>
                 <groupId>com.contentmunch</groupId>
                 <artifactId>muncher-bom</artifactId>
-                <version>1.8.0</version>
+                <version>1.9.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

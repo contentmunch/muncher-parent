@@ -3,7 +3,6 @@
 set -euo pipefail
 # CONFIG: ADD bom config
 BOM_MODULE="muncher-bom"
-PARENT_POM="pom.xml"
 BOM_COORDINATES="com.contentmunch:muncher-bom"
 
 # Step 1: Verify the build
