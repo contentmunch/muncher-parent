@@ -11,3 +11,8 @@ otel:
   traces:
     exporter: none
 
+spring:
+  profiles:
+    #    or use json-logging for logs to be serialized to json
+    active: json-logging
+

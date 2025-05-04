@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
@@ -31,6 +32,7 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
     private static final Set<String> SENSITIVE_HEADERS = Set.of("authorization","cookie","set-cookie");
 
     private static final Set<String> SENSITIVE_KEYS = Set.of("password","token","secret");
+    private static final int MAX_LOG_BODY_SIZE = 8192; // 8 KB
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request){
@@ -62,13 +64,18 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
                 maskHeaders(headers),maskBody(body));
     }
 
-    @SuppressWarnings("DataFlowIssue")
     private void logResponse(ContentCachingResponseWrapper response){
-        var headers = response.getHeaderNames().stream().collect(Collectors.toMap(h -> h,response::getHeader));
-        String body = new String(response.getContentAsByteArray(), StandardCharsets.UTF_8);
+        String contentType = response.getContentType();
+        byte[] content = response.getContentAsByteArray();
 
-        LOG.info("Outgoing Response: status={} headers={} body={}",response.getStatus(),maskHeaders(headers),
-                maskBody(body));
+        if (contentType != null && !contentType.contains("application/json") && !contentType.contains("text")) {
+            LOG.info("Outgoing Response: status={} headers={} bodySkippedDueToContentType={}",response.getStatus(),
+                    maskHeaders(getResponseHeaders(response)),contentType);
+            return;
+        }
+        String body = safeBodyPreview(content);
+        LOG.info("Outgoing Response: status={} headers={} body={}",response.getStatus(),
+                maskHeaders(getResponseHeaders(response)),maskBody(body));
     }
 
     private Map<String, String> maskHeaders(Map<String, String> headers){
@@ -78,6 +85,13 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
             }
             return e.getValue();
         }));
+    }
+
+    private String safeBodyPreview(byte[] content){
+        if (content.length > MAX_LOG_BODY_SIZE) {
+            return new String(content, 0, MAX_LOG_BODY_SIZE, StandardCharsets.UTF_8) + "...(truncated)";
+        }
+        return new String(content, StandardCharsets.UTF_8);
     }
 
     private String maskBody(String body){
@@ -97,6 +111,11 @@ public class RequestResponseLoggingFilter extends OncePerRequestFilter {
         }
 
         return body;
+    }
+
+    private Map<String, String> getResponseHeaders(ContentCachingResponseWrapper response){
+        return response.getHeaderNames().stream().collect(Collectors.toMap(Function.identity(),
+                h -> String.join(", ",response.getHeaders(h)),(v1,v2) -> v1.equals(v2) ? v1 : v1 + ", " + v2));
     }
 
 }
