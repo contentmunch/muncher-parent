@@ -1,4 +1,4 @@
-package com.contentmunch.logging;
+package com.contentmunch.foundation.logging;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

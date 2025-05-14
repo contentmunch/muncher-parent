@@ -1,4 +1,4 @@
-package com.contentmunch.logging;
+package com.contentmunch.foundation.logging;
 
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

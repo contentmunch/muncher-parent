@@ -1,4 +1,4 @@
-package com.contentmunch.telemetry;
+package com.contentmunch.foundation.telemetry;
 
 import static org.hamcrest.Matchers.emptyOrNullString;
 import static org.hamcrest.Matchers.not;
@@ -20,7 +20,7 @@ import io.opentelemetry.sdk.OpenTelemetrySdk;
 import io.opentelemetry.sdk.trace.SdkTracerProvider;
 
 @WebMvcTest
-@ContextConfiguration(classes = {DummyController.class, TelemetryHeaderFilter.class})
+@ContextConfiguration(classes = {DummyTelemetryController.class, TelemetryHeaderFilter.class})
 class TelemetryHeaderFilterTest {
 
     @Autowired

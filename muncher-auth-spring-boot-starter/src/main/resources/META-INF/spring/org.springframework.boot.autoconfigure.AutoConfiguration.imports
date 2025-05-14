@@ -1,4 +1,4 @@
-com.contentmunch.telemetry.TelemetryAutoConfiguration
-com.contentmunch.logging.LoggingAutoConfiguration
-com.contentmunch.error.ExceptionHandlerAutoConfiguration
+com.contentmunch.foundation.telemetry.TelemetryAutoConfiguration
+com.contentmunch.foundation.logging.LoggingAutoConfiguration
+com.contentmunch.foundation.error.ExceptionHandlerAutoConfiguration
 com.contentmunch.authentication.config.AuthenticationAutoConfiguration

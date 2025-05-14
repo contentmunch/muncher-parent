@@ -23,7 +23,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import com.contentmunch.authentication.controller.AuthController;
 import com.contentmunch.authentication.service.CookieService;
 import com.contentmunch.authentication.service.TokenizationService;
-import com.contentmunch.error.GlobalExceptionHandler;
+import com.contentmunch.foundation.error.GlobalExceptionHandler;
 
 @WebMvcTest(AuthController.class)
 @AutoConfigureMockMvc(addFilters = false)

@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.contentmunch.error.ErrorResponse;
+import com.contentmunch.foundation.error.ErrorResponse;
 
 import lombok.extern.slf4j.Slf4j;
 

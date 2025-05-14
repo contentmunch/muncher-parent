@@ -1,4 +1,4 @@
-package com.contentmunch.error;
+package com.contentmunch.foundation.error;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;

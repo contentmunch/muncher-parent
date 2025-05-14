@@ -1,4 +1,4 @@
-package com.contentmunch.logging;
+package com.contentmunch.foundation.logging;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -17,7 +17,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import nl.altindag.log.LogCaptor;
 
-@WebMvcTest(controllers = DummyController.class)
+@WebMvcTest(controllers = DummyLoggingController.class)
 @Import(RequestResponseLoggingFilter.class)
 @AutoConfigureJsonTesters
 class RequestResponseLoggingFilterTest {
@@ -28,7 +28,8 @@ class RequestResponseLoggingFilterTest {
     @Test
     void shouldLogMaskedSensitiveData() throws Exception{
         List<String> logs;
-        try (LogCaptor logCaptor = LogCaptor.forName("com.contentmunch.logging.RequestResponseLoggingFilter")) {
+        try (LogCaptor logCaptor = LogCaptor
+                .forName("com.contentmunch.foundation.logging.RequestResponseLoggingFilter")) {
             logCaptor.setLogLevelToInfo();
 
             var json = """
@@ -56,7 +57,8 @@ class RequestResponseLoggingFilterTest {
     void shouldNotFilterNonApiPaths() throws Exception{
 
         List<String> logs;
-        try (LogCaptor logCaptor = LogCaptor.forName("com.contentmunch.logging.RequestResponseLoggingFilter")) {
+        try (LogCaptor logCaptor = LogCaptor
+                .forName("com.contentmunch.foundation.logging.RequestResponseLoggingFilter")) {
             logCaptor.setLogLevelToInfo(); // Ensure INFO level logs are captured
 
             mockMvc.perform(get("/public/health").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk()); // Or
@@ -76,7 +78,8 @@ class RequestResponseLoggingFilterTest {
     @Test
     void shouldLogPlainTextBodyIfContentTypeIsText() throws Exception{
         List<String> logs;
-        try (LogCaptor logCaptor = LogCaptor.forName("com.contentmunch.logging.RequestResponseLoggingFilter")) {
+        try (LogCaptor logCaptor = LogCaptor
+                .forName("com.contentmunch.foundation.logging.RequestResponseLoggingFilter")) {
             logCaptor.setLogLevelToInfo(); // Ensure INFO level logs are captured
             mockMvc.perform(get("/api/dummy/text")).andExpect(status().isOk());
 
@@ -90,7 +93,8 @@ class RequestResponseLoggingFilterTest {
     @Test
     void shouldSkipBodyForBinaryResponse() throws Exception{
         List<String> logs;
-        try (LogCaptor logCaptor = LogCaptor.forName("com.contentmunch.logging.RequestResponseLoggingFilter")) {
+        try (LogCaptor logCaptor = LogCaptor
+                .forName("com.contentmunch.foundation.logging.RequestResponseLoggingFilter")) {
             logCaptor.setLogLevelToInfo();
             mockMvc.perform(get("/api/dummy/binary")).andExpect(status().isOk());
 
@@ -110,7 +114,8 @@ class RequestResponseLoggingFilterTest {
                 }
                 """.formatted("a".repeat(9000));
 
-        try (LogCaptor logCaptor = LogCaptor.forName("com.contentmunch.logging.RequestResponseLoggingFilter")) {
+        try (LogCaptor logCaptor = LogCaptor
+                .forName("com.contentmunch.foundation.logging.RequestResponseLoggingFilter")) {
             logCaptor.setLogLevelToInfo();
             mockMvc.perform(post("/api/dummy/logs").contentType(MediaType.APPLICATION_JSON).content(largeJson))
                     .andExpect(status().isOk());
@@ -125,7 +130,8 @@ class RequestResponseLoggingFilterTest {
     @Test
     void shouldNotFailOnMalformedJsonBody() throws Exception{
         List<String> logs;
-        try (LogCaptor logCaptor = LogCaptor.forName("com.contentmunch.logging.RequestResponseLoggingFilter")) {
+        try (LogCaptor logCaptor = LogCaptor
+                .forName("com.contentmunch.foundation.logging.RequestResponseLoggingFilter")) {
             logCaptor.setLogLevelToInfo();
             String invalidJson = "{\"username\": \"user1\", \"password\": ";
 

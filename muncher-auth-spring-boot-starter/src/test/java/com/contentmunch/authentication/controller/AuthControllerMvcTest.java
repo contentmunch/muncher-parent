@@ -31,7 +31,7 @@ import com.contentmunch.authentication.model.MuncherRole;
 import com.contentmunch.authentication.model.MuncherUser;
 import com.contentmunch.authentication.service.CookieService;
 import com.contentmunch.authentication.service.TokenizationService;
-import com.contentmunch.error.GlobalExceptionHandler;
+import com.contentmunch.foundation.error.GlobalExceptionHandler;
 
 @WebMvcTest(AuthController.class)
 @AutoConfigureMockMvc(addFilters = false)

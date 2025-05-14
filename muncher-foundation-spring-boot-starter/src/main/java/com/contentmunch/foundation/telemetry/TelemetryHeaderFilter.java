@@ -1,4 +1,4 @@
-package com.contentmunch.telemetry;
+package com.contentmunch.foundation.telemetry;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package com.contentmunch.config;
+package com.contentmunch.foundation.threads;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.env.EnvironmentPostProcessor;
