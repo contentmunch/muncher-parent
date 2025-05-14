@@ -30,7 +30,7 @@ In your Maven project, set `muncher-parent` as the parent:
 <parent>
   <groupId>com.contentmunch</groupId>
   <artifactId>muncher-parent</artifactId>
-  <version>1.0.0.RELEASE</version>
+  <version>1.0.0</version>
 </parent>
 ```
 This gives your project:
@@ -44,8 +44,8 @@ This gives your project:
 ## Dependency Management
 
 The parent imports:
-* Spring Boot BOM: 3.4.4
-* OpenTelemetry BOM: 2.15.0
+* Spring Boot BOM
+* OpenTelemetry BOM
 * muncher-bom for internal library version alignment
 
 These ensure all projects use compatible dependency versions out of the box.

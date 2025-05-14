@@ -47,3 +47,4 @@ echo "🚀 Deploying to Sonatype..."
 mvn deploy -DskipTests
 
 echo "🎉 Release complete: $NEW_VERSION"
+
